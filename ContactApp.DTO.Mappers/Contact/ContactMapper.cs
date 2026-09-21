@@ -1,0 +1,42 @@
+﻿using ContactApp.DTOs.Contact;
+using ContactApp.Framework.Data.Entities;
+using ContactApp.Framework.Mappers;
+using ContactMS.Data.Contract;
+using Microsoft.Extensions.DependencyInjection;
+
+
+namespace ContactApp.DTO.Mappers.Contact
+{
+    public class ContactMapper : APIDataMapper<IContact, ContactDTO>
+    {
+        public ContactMapper(IServiceProvider Services) : base(Services)
+        {
+        }
+
+        public override IContact ToEntity(ContactDTO value)
+        {
+            IContact entity = this.CreateEntity();
+            entity.Id = value.Id;
+            entity.Name = value.Name;
+            entity.isActive = value.isActive;
+            entity.CreatedUserId = value.CreatedUserId;
+            entity.EditedUserId = value.EditedUserId;
+            entity.CreatedDate = value.CreatedDate;
+            entity.EditedDate = value.EditedDate;
+            return entity;
+        }
+
+        public override ContactDTO ToObject(IContact? entity)
+        {
+            ContactDTO value = new ContactDTO();
+            value.Id = entity.Id;
+            value.Name = entity.Name;
+            value.isActive = entity.isActive;
+            value.CreatedUserId = entity.CreatedUserId;
+            value.EditedUserId = entity.EditedUserId;
+            value.CreatedDate = entity.CreatedDate;
+            value.EditedDate = entity.EditedDate;
+            return value;
+        }
+    }
+}

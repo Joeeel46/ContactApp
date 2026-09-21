@@ -1,0 +1,49 @@
+@ContactApp_HostAddress = https://localhost:7111
+
+
+
+POST {{ContactApp_HostAddress}}/api/contact/CreateContact
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "isActive": 1,
+  "createdUserId": 2
+}
+
+###
+
+POST {{ContactApp_HostAddress}}/api/contact/EditContact
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Joel John",
+  "isActive": 1,
+  "editedUserId": 2
+}
+
+###
+
+POST {{ContactApp_HostAddress}}/api/contactdetail/CreateContactDetail
+Content-Type: application/json
+
+{
+  "contactId": 2,
+  "contactNumber": "9123456789",
+  "createdUserId": 2
+}
+
+###
+
+POST {{ContactApp_HostAddress}}/api/contactdetail/EditContactDetail
+Content-Type: application/json
+
+{
+  "id": 1,
+  "contactId": 1,
+  "contactNumber": "9999999999",
+  "editedUserId": 2
+}
+
+###

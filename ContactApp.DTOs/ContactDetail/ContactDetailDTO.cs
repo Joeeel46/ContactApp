@@ -1,0 +1,14 @@
+﻿
+namespace ContactApp.DTOs.ContactDetail
+{
+    public class ContactDetailDTO
+    {
+        public long Id { get; set; }
+        public long ContactId { get; set; }
+        public string ContactNumber { get; set; }
+        public long? CreatedUserId { get; set; }
+        public long? EditedUserId { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public DateTime? EditedDate { get; set; }
+    }
+}

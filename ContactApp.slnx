@@ -1,3 +1,26 @@
 <Solution>
-  <Project Path="ContactApp.csproj" />
+  <Folder Name="/Business/">
+    <Project Path="ContactApp.Business.Contracts/ContactApp.Business.Contracts.csproj" Id="60d30286-1b2b-461b-8ea7-a6db43fdccaf" />
+    <Project Path="ContactApp.Business/ContactApp.Business.csproj" Id="ad31c005-83ab-477a-a112-4097a96d6f02" />
+  </Folder>
+  <Folder Name="/Data/">
+    <Project Path="ContactApp.Data.Service.Contracts/ContactApp.Data.Service.Contracts.csproj" Id="a678d753-f686-4787-8969-681799284d82" />
+    <Project Path="ContactApp.Data.Service/ContactApp.Data.Service.csproj" Id="5cd03f28-2a80-41c7-9bce-5a8733319c4b" />
+    <Project Path="ContactMS.Data.Contract/ContactMS.Data.Contract.csproj" Id="3d179e39-a25a-4e36-8e78-6de354e1c66d" />
+    <Project Path="ContactMS.Data/ContactApp.Data.csproj" Id="d628f80f-2155-4cd3-8185-b266410573f7" />
+  </Folder>
+  <Folder Name="/DTOs/">
+    <Project Path="ContactApp.DTO.Mappers/ContactApp.DTO.Mappers.csproj" Id="ca23ecb6-fcb9-438b-8fbb-d393c3e152a5" />
+    <Project Path="ContactApp.DTOs/ContactApp.DTOs.csproj" Id="51157854-c71d-4e27-91b2-e55ebce34adf" />
+  </Folder>
+  <Folder Name="/Framework/">
+    <Project Path="../ContactApp.Framework/ContactApp.Framework.csproj" />
+    <Project Path="ContactApp.Framework.Extentions/ContactApp.Framework.Extentions.csproj" Id="9da84561-bb93-4996-ad0b-bad295f04931" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+  </Folder>
+  <Folder Name="/WebAPI/">
+    <Project Path="ContactApp/ContactApp.csproj" Id="d938c74f-a654-4225-bfe3-09c2e3d19b68" />
+  </Folder>
 </Solution>
