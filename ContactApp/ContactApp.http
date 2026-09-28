@@ -20,7 +20,7 @@ Content-Type: application/json
   "id": 1,
   "name": "Joe John",
   "isActive": 1,
-  "editedUserId": 2
+  "editedUserId": 1
 }
 
 ###
@@ -40,10 +40,56 @@ POST {{ContactApp_HostAddress}}/api/contactdetail/EditContactDetail
 Content-Type: application/json
 
 {
-  "id": 1,
-  "contactId": 1,
+  "id": 6,
+  "contactId": 4,
   "contactNumber": "9999999999",
-  "editedUserId": 2
+  "editedUserId": 1
 }
+
+###
+
+POST {{ContactApp_HostAddress}}/api/contact/CreateContactWithDetails
+Content-Type: application/json
+
+{
+  "name": "Alex",
+  "isActive": 1,
+  "createdUserId": 2,
+  "contactDetails": [
+    {
+      "contactNumber": "9284653712",
+      "createdUserId": 2
+    },
+    {
+      "contactNumber": "9756384957",
+      "createdUserId": 2
+    }
+  ]
+}
+
+###
+
+@id=4
+GET {{ContactApp_HostAddress}}/api/contact/GetContactById/{{id}}
+
+###
+
+GET {{ContactApp_HostAddress}}/api/contactdetail/GetContactDetailById/{{id}}
+
+###
+
+GET {{ContactApp_HostAddress}}/api/contact/GetContactAndDetailsById/{{id}}
+
+###
+
+PUT {{ContactApp_HostAddress}}/api/contact/UnblockContact/{{id}}
+
+###
+
+PUT {{ContactApp_HostAddress}}/api/contact/DeleteContact/{{id}}
+
+###
+
+PUT {{ContactApp_HostAddress}}/api/contact/BlockContact/{{id}}
 
 ###

@@ -11,5 +11,9 @@ namespace ContactApp.Data.Service.Contracts
     {
         Task<ActionStatus<IContact>> CreateContact(IContact result);
         Task<ActionStatus<IContact>> EditContact(IContact result);
+        Task<ActionStatus<IContact>> GetContactById(long id);
+        Task<ActionStatus<IContact>> BlockContact(long id);
+        Task<ActionStatus<IContact>> UnblockContact(long id);
+        Task<ActionStatus<IContact>> DeleteContact(long id);
     }
 }

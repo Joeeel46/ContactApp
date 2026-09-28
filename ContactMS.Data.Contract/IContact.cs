@@ -9,6 +9,7 @@ namespace ContactMS.Data.Contract
     {
         string Name { get; set; }
         int isActive { get; set; }
+        //ICollection<ContactDetail> ContactDetails { get; set; }
 
     }
 }

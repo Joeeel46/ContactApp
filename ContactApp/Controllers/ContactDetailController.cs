@@ -67,6 +67,22 @@ namespace ContactApp.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("GetContactDetailById/{id}")]
+        public async Task<ActionResult> GetContactDetailById(long id)
+        {
+            try
+            {
+                ActionStatus<ContactDetailDTO> result = await _contactDetailService.GetContactDetailById(id);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         //[HttpDelete]
         //[Route("DeleteContactDetail/{id}")]
         //public async Task<ActionResult> DeleteContactDetail(int id)

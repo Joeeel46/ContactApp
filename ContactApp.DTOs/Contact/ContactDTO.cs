@@ -1,4 +1,6 @@
-﻿namespace ContactApp.DTOs.Contact
+﻿using ContactApp.DTOs.ContactDetail;
+
+namespace ContactApp.DTOs.Contact
 {
     public class ContactDTO
     {
@@ -9,5 +11,6 @@
         public long? EditedUserId { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? EditedDate { get; set; }
+        public List<ContactDetailDTO>? ContactDetails { get; set; }
     }
 }

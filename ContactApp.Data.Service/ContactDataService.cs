@@ -65,5 +65,108 @@ namespace ContactApp.Data.Service
                 return new ActionStatus<IContact>("DPC-EditContact", ex);
             }
         }
+
+        public async Task<ActionStatus<IContact>> GetContactById(long id)
+        {
+            try
+            {
+                IContact? result = await _contactRepository.Entities.FirstOrDefaultAsync(x => x.Id == id);
+
+                if (result != null)
+                    return new ActionStatus<IContact>(true, result);
+
+                return new ActionStatus<IContact>(new ResponseVM("DPE0001"));
+            }
+            catch (Exception ex)
+            {
+                return new ActionStatus<IContact>("DSE-GetContactById", ex);
+            }
+        }
+
+        public async Task<ActionStatus<IContact>> BlockContact(long id)
+        {
+            try
+            {
+                IContact? contact = await _contactRepository.Entities.FirstOrDefaultAsync(x => x.Id == id);
+
+                if (contact == null)
+                {
+                    return new ActionStatus<IContact>(new ResponseVM("CONTACT_NOT_FOUND"));
+                }
+
+                contact.isActive = 2;
+
+                _contactRepository.Update(contact);
+
+                int count = await UnitOfWork.CommitAsync();
+
+                if (count > 0)
+                    return new ActionStatus<IContact>(true, contact);
+
+                return new ActionStatus<IContact>(new ResponseVM("CONTACT_BLOCK_FAILED"));
+            }
+            catch (Exception ex)
+            {
+                return new ActionStatus<IContact>("DSE-BlockContact", ex);
+            }
+        }
+
+        public async Task<ActionStatus<IContact>> UnblockContact(long id)
+        {
+            try
+            {
+                IContact? contact = await _contactRepository.Entities.FirstOrDefaultAsync(x => x.Id == id);
+
+                if (contact == null)
+                {
+                    return new ActionStatus<IContact>(new ResponseVM("CONTACT_NOT_FOUND"));
+                }
+
+                contact.isActive = 1;
+
+                _contactRepository.Update(contact);
+
+                int count = await UnitOfWork.CommitAsync();
+
+                if (count > 0)
+                    return new ActionStatus<IContact>(true, contact);
+
+                return new ActionStatus<IContact>(new ResponseVM("CONTACT_UNBLOCK_FAILED"));
+            }
+            catch (Exception ex)
+            {
+                return new ActionStatus<IContact>("DSE-UnblockContact", ex);
+            }
+        }
+
+        public async Task<ActionStatus<IContact>> DeleteContact(long id)
+        {
+            try
+            {
+                IContact? contact = await _contactRepository.Entities.FirstOrDefaultAsync(x => x.Id == id);
+
+                if (contact == null)
+                {
+                    return new ActionStatus<IContact>(new ResponseVM("CONTACT_NOT_FOUND"));
+                }
+
+                contact.isActive = 3;
+
+                _contactRepository.Update(contact);
+
+                int count = await UnitOfWork.CommitAsync();
+
+                if (count > 0)
+                {
+                    return new ActionStatus<IContact>(true, contact);
+                }
+
+                return new ActionStatus<IContact>(new ResponseVM("CONTACT_DELETE_FAILED"));
+            }
+            catch (Exception ex)
+            {
+                return new ActionStatus<IContact>("DSE-DeleteContact", ex);
+            }
+        }
     }
 }

@@ -65,5 +65,121 @@ namespace ContactApp.Controllers
                 return StatusCode(500, new ActionStatus(new ResponseVM("CPCE002")));
             }
         }
+
+        [HttpPost]
+        [Route("CreateContactWithDetails")]
+        public async Task<ActionResult> CreateContactWithDetails(CreateContactRequestDTO dto)
+        {
+            try
+            {
+                ActionStatus<ContactDTO> result = await _contactService.CreateContactWithDetails(dto);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("GetContactById/{id}")]
+        public async Task<ActionResult> GetContactById(long id)
+        {
+            try
+            {
+                ActionStatus<ContactDTO> result =
+                    await _contactService.GetContactById(id);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("GetContactAndDetailsById/{id}")]
+        public async Task<ActionResult> GetContactAndDetailsById(long id)
+        {
+            try
+            {
+                ActionStatus<ContactDTO> result = await _contactService.GetContactAndDetailsById(id);
+
+                if (result)
+                {
+                    return Ok(result);
+                }
+
+                return BadRequest(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut]
+        [Route("BlockContact/{id}")]
+        public async Task<ActionResult> BlockContact(long id)
+        {
+            try
+            {
+                ActionStatus<ContactDTO> result = await _contactService.BlockContact(id);
+
+                if (result)
+                {
+                    return Ok(result);
+                }
+
+                return BadRequest(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut]
+        [Route("UnblockContact/{id}")]
+        public async Task<ActionResult> UnblockContact(long id)
+        {
+            try
+            {
+                ActionStatus<ContactDTO> result =
+                    await _contactService.UnblockContact(id);
+
+                if (result)
+                {
+                    return Ok(result);
+                }
+
+                return BadRequest(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut]
+        [Route("DeleteContact/{id}")]
+        public async Task<ActionResult> DeleteContact(long id)
+        {
+            try
+            {
+                ActionStatus<ContactDTO> result = await _contactService.DeleteContact(id);
+
+                if (result)
+                    return Ok(result);
+
+                return BadRequest(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

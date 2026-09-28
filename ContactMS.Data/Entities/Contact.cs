@@ -13,7 +13,7 @@ namespace ContactMS.Data.Entities
         public int isActive { get; set; }
         public long? CreatedUserId { get; set; }
         public long? EditedUserId { get; set; }
-        public virtual ICollection<ContactDetail>? ContactDetails { get; set; } //navigation property
+        public virtual ICollection<ContactDetail>? ContactDetails { get; set; } //navigation property (Fluent API)
 
     }
 }

@@ -18,12 +18,12 @@ namespace ContactApp.DTO.Mappers
             services.AddScoped<APIDataMapper<IContact, ContactDTO>, ContactMapper>();
             services.AddScoped<APIDataMapper<IContact, CreateContactDTO>, CreateContactMapper>();
             services.AddScoped<APIDataMapper<IContact, EditContactDTO>, EditContactMapper>();
-           
-            services.AddScoped<APIDataMapper<IContactDetail, ContactDetailDTO>,ContactDetailMapper>();
+            services.AddScoped<APIDataMapper<IContact, CreateContactRequestDTO>, CreateContactRequestMapper>();
 
-            services.AddScoped<APIDataMapper<IContactDetail, CreateContactDetailDTO>,CreateContactDetailMapper>();
-
-            services.AddScoped<APIDataMapper<IContactDetail, EditContactDetailDTO>,EditContactDetailMapper>();
+            services.AddScoped<APIDataMapper<IContactDetail, ContactDetailDTO>, ContactDetailMapper>();
+            services.AddScoped<APIDataMapper<IContactDetail, CreateContactDetailDTO>, CreateContactDetailMapper>();
+            services.AddScoped<APIDataMapper<IContactDetail, EditContactDetailDTO>, EditContactDetailMapper>();
+            services.AddScoped<APIDataMapper<IContactDetail, CreateContactDetailRequestDTO>, CreateContactDetailRequestMapper>();
 
             return services;
         }
