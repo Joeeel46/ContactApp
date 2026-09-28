@@ -83,28 +83,26 @@ namespace ContactApp.Controllers
             }
         }
 
-        //[HttpDelete]
-        //[Route("DeleteContactDetail/{id}")]
-        //public async Task<ActionResult> DeleteContactDetail(int id)
-        //{
-        //    try
-        //    {
-        //        ActionStatus<ContactDetailDTO> result = await _contactDetailService.DeleteContactDetail(id);
-        //        if (result)
-        //        {
-        //            result.Response = new ResponseVM("CPD0001");
-        //            return Ok(result);
-        //        }
-        //        else if (result.HasException)
-        //        {
-        //            return StatusCode(500, new ActionStatus(new ResponseVM("CPDE001")));
-        //        }
-        //        return BadRequest(result);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, new ActionStatus(new ResponseVM("CPDE001")));
-        //    }
-        //}
+        [HttpDelete]
+        [Route("DeleteContactDetailById/{id}")]
+        public async Task<ActionResult> DeleteContactDetailById(long id)
+        {
+            try
+            {
+                ActionStatus<ContactDetailDTO> result =
+                    await _contactDetailService.DeleteContactDetailById(id);
+
+                if (result)
+                {
+                    return Ok(result);
+                }
+
+                return BadRequest(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

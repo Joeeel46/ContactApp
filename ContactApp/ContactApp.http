@@ -69,7 +69,7 @@ Content-Type: application/json
 
 ###
 
-@id=4
+@id=9
 GET {{ContactApp_HostAddress}}/api/contact/GetContactById/{{id}}
 
 ###
@@ -91,5 +91,9 @@ PUT {{ContactApp_HostAddress}}/api/contact/DeleteContact/{{id}}
 ###
 
 PUT {{ContactApp_HostAddress}}/api/contact/BlockContact/{{id}}
+
+###
+
+DELETE {{ContactApp_HostAddress}}/api/contactdetail/DeleteContactDetailById/{{id}}
 
 ###

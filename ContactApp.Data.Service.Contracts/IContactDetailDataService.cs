@@ -12,8 +12,8 @@ namespace ContactApp.Data.Service.Contracts
         Task<ActionStatus<List<IContactDetail>>> CreateContactDetails(List<IContactDetail> detailmodel);
         Task<ActionStatus<IContactDetail>> EditContactDetail(IContactDetail result);
         Task<ActionStatus<IContactDetail>> GetContactDetailById(long id);
-        Task<ActionStatus<List<IContactDetail>>>GetContactDetailsByContactId(long contactId);
+        Task<ActionStatus<List<IContactDetail>>> GetContactDetailsByContactId(long contactId);
 
-        //Task<ActionStatus<IContactDetail>> DeleteContactDetail(int id);
+        Task<ActionStatus<IContactDetail>> DeleteContactDetailById(long id);
     }
 }

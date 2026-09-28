@@ -100,5 +100,30 @@ namespace ContactApp.Business
                 return new ActionStatus<ContactDetailDTO>("BPCD-GetContactDetailById", ex);
             }
         }
+
+        public async Task<ActionStatus<ContactDetailDTO>> DeleteContactDetailById(long id)
+        {
+            try
+            {
+                ActionStatus<IContactDetail> data = await _contactDetailDataService.DeleteContactDetailById(id);
+
+                if (data)
+                {
+                    ContactDetailDTO response =  _contactDetailMapper.ToObject(data.Result);
+
+                    return new ActionStatus<ContactDetailDTO>(true, response);
+                }
+                else if (data.HasException)
+                {
+                    return new ActionStatus<ContactDetailDTO>( new ResponseVM("BPCD001"));
+                }
+
+                return new ActionStatus<ContactDetailDTO>(data);
+            }
+            catch (Exception ex)
+            {
+                return new ActionStatus<ContactDetailDTO>("BPCD-DeleteContactDetail", ex);
+            }
+        }
     }
 }

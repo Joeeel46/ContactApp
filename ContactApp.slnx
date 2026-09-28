@@ -14,8 +14,8 @@
     <Project Path="ContactApp.DTOs/ContactApp.DTOs.csproj" Id="51157854-c71d-4e27-91b2-e55ebce34adf" />
   </Folder>
   <Folder Name="/Framework/">
-    <Project Path="../ContactApp.Framework/ContactApp.Framework.csproj" />
     <Project Path="ContactApp.Framework.Extentions/ContactApp.Framework.Extentions.csproj" Id="9da84561-bb93-4996-ad0b-bad295f04931" />
+    <Project Path="ContactApp.Framework/ContactApp.Framework.csproj" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".gitignore" />

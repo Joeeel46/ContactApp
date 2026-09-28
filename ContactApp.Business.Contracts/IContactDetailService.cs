@@ -12,6 +12,6 @@ namespace ContactApp.Business.Contracts
         Task<ActionStatus<ContactDetailDTO>> CreateContactDetail(CreateContactDetailDTO dto);
         Task<ActionStatus<ContactDetailDTO>> EditContactDetail(EditContactDetailDTO dto);
         Task<ActionStatus<ContactDetailDTO>> GetContactDetailById(long id);
-        //Task<ActionStatus<ContactDetailDTO>> DeleteContactDetail(int id);
+        Task<ActionStatus<ContactDetailDTO>> DeleteContactDetailById(long id);
     }
 }

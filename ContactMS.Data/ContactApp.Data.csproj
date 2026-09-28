@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\ContactApp.Framework\ContactApp.Framework.csproj" />
+    <ProjectReference Include="..\ContactApp.Framework\ContactApp.Framework.csproj" />
     <ProjectReference Include="..\ContactMS.Data.Contract\ContactMS.Data.Contract.csproj" />
   </ItemGroup>
 
